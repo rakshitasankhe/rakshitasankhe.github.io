@@ -133,19 +133,7 @@
       }
     }
   </style>
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X4N6QTWPRF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-X4N6QTWPRF');
-</script>
-
 </head>
-
 <body>
 
   <nav>
@@ -175,4 +163,75 @@
 
   <section id="experience">
     <h2>Experience</h2>
-    <p><strong>Room Attendant – Powderhorn Château, NZ (2023–2025)</strong>
+    <p><strong>Room Attendant – Powderhorn Château, NZ (2023–2025)</strong></p>
+    <ul>
+      <li>Maintained cleanliness, trained new staff, and supported guests.</li>
+    </ul>
+    <p><strong>Data Analyst Intern – Drishti Works, India (2019–2020)</strong></p>
+    <ul>
+      <li>Performed data cleaning, image processing, and client interaction.</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>
+        <strong>LTE Network NB-IoT:</strong> Simulated and analyzed LTE network with NB-IoT using NS-3.
+      </li>
+      <li>
+        <strong>NZ Banking Customer Churn:</strong> Power BI dashboard, logistic regression model.  
+        <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank">View on GitHub</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
+    <p>Phone: 0274215478</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank">linkedin.com/in/rakshita-sankhe</a></p>
+    <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank">github.com/rakshitasankhe</a></p>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p>You can download my resume by clicking the button below:</p>
+    <a href="resume.pdf" download>
+      <button class="resume-button">Download Resume</button>
+    </a>
+  </section>
+
+  <footer>
+    &copy; 2025 Rakshita Sankhe
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach((sec) => {
+        sec.classList.remove("active", "show");
+        setTimeout(() => sec.style.display = "none", 400);
+      });
+
+      const target = document.getElementById(sectionId);
+      target.style.display = "block";
+      setTimeout(() => {
+        target.classList.add("active", "show");
+      }, 50);
+    }
+  </script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X4N6QTWPRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X4N6QTWPRF');
+</script>
+
+
+</body>
+</html>
