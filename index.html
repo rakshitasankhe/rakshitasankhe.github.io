@@ -1,222 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rakshita Sankhe | Data Analyst Portfolio</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rakshita Sankhe | Data Analyst Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
 
-    html {
-      scroll-behavior: smooth;
-    }
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: #111;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+  }
 
-    body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #222;
-      line-height: 1.6;
-      background: #f9f9f9;
-    }
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+  }
 
-    a {
-      color: #007acc;
-      text-decoration: none;
-    }
+  nav {
+    max-width: 720px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+  }
 
-    a:hover {
-      text-decoration: underline;
-    }
+  nav a {
+    color: #222;
+    text-decoration: none;
+    padding: 0 1rem;
+    transition: color 0.3s ease;
+  }
+  nav a:hover,
+  nav a.active {
+    color: #007acc;
+  }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 4rem;
+  }
 
-    nav {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-    }
+  section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 3rem;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    nav a {
-      margin-left: 20px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+  h1 {
+    font-weight: 200;
+    font-size: 4rem;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.05em;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #007acc;
+    margin-bottom: 1rem;
+    letter-spacing: 0.06em;
+  }
+  h3 {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: #111;
+  }
+  p {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #444;
+    max-width: 680px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  li {
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+    color: #333;
+  }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 100px 20px 40px; /* top padding accounts for fixed header */
-    }
+  a.project-link {
+    color: #007acc;
+    font-weight: 600;
+  }
+  a.project-link:hover {
+    text-decoration: underline;
+  }
 
-    section {
-      margin-bottom: 60px;
-    }
+  .contact p {
+    margin: 0.4rem 0;
+  }
 
+  footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.85rem;
+    padding: 2rem 0 3rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
     h1 {
-      font-weight: 900;
       font-size: 3rem;
-      margin-bottom: 10px;
-      color: #007acc;
     }
-
-    h2 {
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-bottom: 3px solid #007acc;
-      padding-bottom: 8px;
+    main {
+      padding: 5rem 1rem 3rem;
     }
-
-    p {
-      max-width: 650px;
-      font-size: 1.05rem;
-      color: #444;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    li {
-      margin-bottom: 10px;
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .contact-info p {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    footer {
-      text-align: center;
-      color: #777;
-      font-size: 0.9rem;
-      margin-top: 40px;
-      padding-bottom: 20px;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.4rem;
-      }
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      nav a {
-        margin: 10px 15px 0;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <nav>
-      <div><a href="#hero">Rakshita Sankhe</a></div>
-      <div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+<header>
+  <nav>
+    <a href="#hero" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <div class="container">
-    <section id="hero">
-      <h1>Rakshita Sankhe</h1>
-      <p>Data Analyst | Tech-savvy professional with strong analytical skills</p>
-      <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a> | Phone: 0274215478</p>
-    </section>
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Tech-savvy professional with a strong analytical mindset and willingness to embrace new technology. Adept at using software tools, learning new systems, and applying critical thinking to solve complex challenges.</p>
-    </section>
-
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <ul>
-        <li><strong>Languages & Tools:</strong> Python, SQL, Excel, C/C++, Git</li>
-        <li><strong>Libraries/Frameworks:</strong> Pandas, NumPy, Matplotlib, OpenCV</li>
-        <li><strong>Databases:</strong> MySQL</li>
-        <li><strong>Data Science & AI:</strong> Data Cleaning, Image Segmentation, Object Detection</li>
-        <li><strong>Software & Platforms:</strong> Power BI, Tableau, MS Office Suite</li>
-        <li><strong>Operating Systems:</strong> Windows, Linux</li>
-        <li><strong>Other:</strong> Data Visualization, Data Entry & Reporting, Analytical Thinking</li>
-      </ul>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <h3>Room Attendant | Powderhorn Château, Ohakune, NZ (07/2023 – 05/2025)</h3>
-      <ul>
-        <li>Monitored cleanliness of lobby, swimming pool, and common areas.</li>
-        <li>Washed and polished glass windows and doors to keep entryways clear.</li>
-        <li>Maintained well-stocked and organized service carts.</li>
-        <li>Coached new housekeeping personnel in approved cleaning procedures.</li>
-        <li>Responded quickly to guest requests to optimize comfort.</li>
-      </ul>
-      <h3>Data Analyst Intern | Drishti Works, Mumbai, India (09/2019 – 03/2020)</h3>
-      <ul>
-        <li>Collected, interpreted, and distributed data related to farm crops.</li>
-        <li>Performed image segmentation and object detection tasks.</li>
-        <li>Communicated with clients to understand and assist with their problems.</li>
-        <li>Provided technical support and engaged in continuous learning.</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>Performance Improvement of LTE Network Using NB-IoT</strong><br />
-          Simulated LTE networks with NB-IoT using NS-3 to evaluate and improve performance under various FFR algorithms.
-        </li>
-        <li>
-          <strong>NZ Banking Customer Insights – Churn Analysis</strong><br />
-          Cleaned and visualized NZ bank data, built a churn prediction model using logistic regression, and created an interactive Power BI dashboard.<br />
-          <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank">View Project on GitHub</a>
-        </li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
-       
-        <p>LinkedIn: <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank">linkedin.com/in/rakshita-sankhe</a></p>
-        <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank">github.com/rakshitasankhe</a></p>
-        <p>Location: Auckland, New Zealand 2110</p>
-      </div>
-    </section>
+<main>
+  <section id="hero" class="visible" style="display:flex; align-items:center; gap: 1.5rem; flex-wrap: wrap;">
+  <img src="profile.jpg" alt="Rakshita Sankhe" style="width:150px; height:150px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+  <div>
+    <h1>Rakshita Sankhe</h1>
+    <p style="font-weight: 300; font-size: 1.2rem; margin-top: -0.5rem; color:#555;">
+      Data Analyst | Tech-savvy professional with strong analytical skills
+    </p>
+    <p style="margin-top:1rem; font-weight: 400; font-size: 1rem;">
+      Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a> | Phone: 0274215478
+    </p>
   </div>
+</section>
 
-  <footer>
-    &copy; 2025 Rakshita Sankhe
-  </footer>
+    <h1>Rakshita Sankhe</h1>
+    <p style="font-weight: 300; font-size: 1.2rem; margin-top: -0.5rem; color:#555;">
+      Data Analyst | Tech-savvy professional with strong analytical skills
+    </p>
+    <p style="margin-top:1rem; font-weight: 400; font-size: 1rem;">
+      Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a> | Phone: 0274215478
+    </p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Tech-savvy professional with a strong analytical mindset and willingness to embrace new technology. Adept at using software tools, learning new systems, and applying critical thinking to solve complex challenges.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li><strong>Languages & Tools:</strong> Python, SQL, Excel, C/C++, Git</li>
+      <li><strong>Libraries/Frameworks:</strong> Pandas, NumPy, Matplotlib, OpenCV</li>
+      <li><strong>Databases:</strong> MySQL</li>
+      <li><strong>Data Science & AI:</strong> Data Cleaning, Image Segmentation, Object Detection</li>
+      <li><strong>Software & Platforms:</strong> Power BI, Tableau, MS Office Suite</li>
+      <li><strong>Operating Systems:</strong> Windows, Linux</li>
+      <li><strong>Other:</strong> Data Visualization, Data Entry & Reporting, Analytical Thinking</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <h3>Room Attendant | Powderhorn Château, Ohakune, NZ (07/2023 – 05/2025)</h3>
+    <ul>
+      <li>Monitored cleanliness of lobby, swimming pool, and common areas.</li>
+      <li>Washed and polished glass windows and doors to keep entryways clear.</li>
+      <li>Maintained well-stocked and organized service carts.</li>
+      <li>Coached new housekeeping personnel in approved cleaning procedures.</li>
+      <li>Responded quickly to guest requests to optimize comfort.</li>
+    </ul>
+    <h3>Data Analyst Intern | Drishti Works, Mumbai, India (09/2019 – 03/2020)</h3>
+    <ul>
+      <li>Collected, interpreted, and distributed data related to farm crops.</li>
+      <li>Performed image segmentation and object detection tasks.</li>
+      <li>Communicated with clients to understand and assist with their problems.</li>
+      <li>Provided technical support and engaged in continuous learning.</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>
+        <strong>Performance Improvement of LTE Network Using NB-IoT</strong><br />
+        Simulated LTE networks with NB-IoT using NS-3 to evaluate and improve performance under various FFR algorithms.
+      </li>
+      <li>
+        <strong>NZ Banking Customer Insights – Churn Analysis</strong><br />
+        Cleaned and visualized NZ bank data, built a churn prediction model using logistic regression, and created an interactive Power BI dashboard.<br />
+        <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" class="project-link" target="_blank">View Project on GitHub</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
+      <p>Phone: 0274215478</p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank">linkedin.com/in/rakshita-sankhe</a></p>
+      <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank">github.com/rakshitasankhe</a></p>
+      <p>Location: Auckland, New Zealand 2110</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Rakshita Sankhe
+</footer>
+
+<script>
+  // Fade in sections on scroll
+  const sections = document.querySelectorAll('section');
+
+  function checkVisibility() {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < triggerBottom) {
+        section.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', checkVisibility);
+  window.addEventListener('load', checkVisibility);
+
+  // Highlight nav links on scroll
+  const navLinks = document.querySelectorAll('nav a');
+
+  window.addEventListener('scroll', () => {
+    let currentId = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 80;
+      if (window.pageYOffset >= sectionTop) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentId}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
