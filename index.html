@@ -20,6 +20,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
     nav a {
@@ -28,10 +29,27 @@
       margin: 0 1rem;
       font-weight: 500;
       cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: white;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #ffeb3b;
     }
 
     section {
@@ -70,10 +88,42 @@
       font-weight: bold;
       cursor: pointer;
       margin-top: 1rem;
+      transition: all 0.3s ease;
     }
 
     .resume-button:hover {
       background: #005fa3;
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    /* Fade Animation */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Profile image */
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -88,12 +138,13 @@
     <a onclick="showSection('resume')">Resume</a>
   </nav>
 
-  <section id="about" class="active">
+  <section id="about" class="active fade">
     <h2>About Me</h2>
+    <img src="profile.jpg" alt="Rakshita Sankhe" class="profile-pic" />
     <p>Tech-savvy professional with a strong analytical mindset and willingness to embrace new technology. Adept at using software tools, learning new systems, and applying critical thinking to solve complex challenges.</p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="fade">
     <h2>Technical Skills</h2>
     <ul>
       <li>Python, SQL, Excel, C/C++, Git</li>
@@ -103,7 +154,7 @@
     </ul>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="fade">
     <h2>Experience</h2>
     <p><strong>Room Attendant – Powderhorn Château, NZ (2023–2025)</strong></p>
     <ul>
@@ -115,7 +166,7 @@
     </ul>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="fade">
     <h2>Projects</h2>
     <ul>
       <li>
@@ -128,7 +179,7 @@
     </ul>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="fade">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
     <p>Phone: 0274215478</p>
@@ -136,7 +187,7 @@
     <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank">github.com/rakshitasankhe</a></p>
   </section>
 
-  <section id="resume">
+  <section id="resume" class="fade">
     <h2>Resume</h2>
     <p>You can download my resume by clicking the button below:</p>
     <a href="resume.pdf" download>
@@ -151,8 +202,16 @@
   <script>
     function showSection(sectionId) {
       const sections = document.querySelectorAll("section");
-      sections.forEach(sec => sec.classList.remove("active"));
-      document.getElementById(sectionId).classList.add("active");
+      sections.forEach(sec => {
+        sec.classList.remove("active");
+        setTimeout(() => sec.classList.remove("fade"), 300);
+      });
+
+      const target = document.getElementById(sectionId);
+      target.classList.add("fade");
+      setTimeout(() => {
+        target.classList.add("active");
+      }, 50);
     }
   </script>
 
