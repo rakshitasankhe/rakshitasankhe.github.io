@@ -24,10 +24,32 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
-    .nav-left {
-      font-weight: bold;
+    .nav-left .nav-name {
       color: white;
+      text-decoration: none;
+      font-weight: bold;
       font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-left .nav-name::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: white;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-left .nav-name:hover::after {
+      width: 100%;
+    }
+
+    .nav-left .nav-name:hover {
+      color: #ffeb3b;
     }
 
     .nav-right a {
@@ -169,9 +191,8 @@
 
   <nav>
     <div class="nav-left">
-       <a onclick="showSection('about')" style="color: white; text-decoration: none; font-weight: bold; font-size: 1.1rem;">Rakshita Sankhe</a>
+      <a onclick="showSection('about')" class="nav-name">Rakshita Sankhe</a>
     </div>
-
     <div class="nav-right">
       <a onclick="showSection('about')">About</a>
       <a onclick="showSection('skills')">Skills</a>
@@ -235,7 +256,7 @@
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
-    <p>Phone: 0274215478</p>
+    
     <p>LinkedIn: <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank">linkedin.com/in/rakshita-sankhe</a></p>
     <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank">github.com/rakshitasankhe</a></p>
   </section>
