@@ -11,7 +11,6 @@
       background: #fefefe;
       color: #222;
     }
-
     nav {
       background: #007acc;
       display: flex;
@@ -23,7 +22,6 @@
       z-index: 1000;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-
     .nav-left .nav-name {
       color: white;
       text-decoration: none;
@@ -32,7 +30,6 @@
       position: relative;
       transition: color 0.3s ease;
     }
-
     .nav-left .nav-name::after {
       content: "";
       position: absolute;
@@ -43,15 +40,12 @@
       bottom: -5px;
       transition: width 0.3s ease;
     }
-
     .nav-left .nav-name:hover::after {
       width: 100%;
     }
-
     .nav-left .nav-name:hover {
       color: #ffeb3b;
     }
-
     .nav-right a {
       color: white;
       text-decoration: none;
@@ -62,7 +56,6 @@
       transition: all 0.3s ease;
       font-size: 1.05rem;
     }
-
     .nav-right a::after {
       content: "";
       position: absolute;
@@ -73,15 +66,12 @@
       bottom: -5px;
       transition: width 0.3s ease;
     }
-
     .nav-right a:hover::after {
       width: 100%;
     }
-
     .nav-right a:hover {
       color: #ffeb3b;
     }
-
     section {
       display: none;
       max-width: 800px;
@@ -92,24 +82,15 @@
       transform: translateY(40px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
     section.active {
       display: block;
     }
-
     section.show {
       opacity: 1;
       transform: translateY(0);
     }
-
-    h2 {
-      color: #007acc;
-    }
-
-    ul {
-      padding-left: 1rem;
-    }
-
+    h2 { color: #007acc; }
+    ul { padding-left: 1rem; }
     .resume-button {
       background: #007acc;
       color: white;
@@ -121,13 +102,11 @@
       margin-top: 1rem;
       transition: all 0.3s ease;
     }
-
     .resume-button:hover {
       background: #005fa3;
       transform: scale(1.05);
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
-
     .profile-pic {
       width: 200px;
       height: 200px;
@@ -137,142 +116,134 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       animation: pop-in 1s ease forwards;
     }
-
     @keyframes pop-in {
-      0% {
-        transform: scale(0.6);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
-
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
       color: #999;
     }
-
-    footer p {
-      margin: 0.3rem 0;
-    }
-
+    footer p { margin: 0.3rem 0; }
     footer a {
       color: #007acc;
       text-decoration: none;
     }
-
     footer a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-right {
-        flex-wrap: wrap;
-        margin-top: 1rem;
-      }
-      .nav-right a {
-        margin: 0.5rem 0.8rem 0 0;
-      }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.6);
     }
-
-    @media print {
-      nav, footer, .resume-button {
-        display: none !important;
-      }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 1rem;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 8px;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #000;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-left">
-      <a onclick="showSection('about')" class="nav-name">Rakshita Sankhe</a>
-    </div>
-    <div class="nav-right">
-      <a onclick="showSection('about')">About</a>
-      <a onclick="showSection('skills')">Skills</a>
-      <a onclick="showSection('experience')">Experience</a>
-      <a onclick="showSection('projects')">Projects</a>
-      <a onclick="showSection('contact')">Contact</a>
-      <a onclick="showSection('resume')">Resume</a>
-    </div>
-  </nav>
+<nav>
+  <div class="nav-left">
+    <a onclick="showSection('about')" class="nav-name">Rakshita Sankhe</a>
+  </div>
+  <div class="nav-right">
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('skills')">Skills</a>
+    <a onclick="showSection('experience')">Experience</a>
+    <a onclick="showSection('projects')">Projects</a>
+    <a onclick="showSection('contact')">Contact</a>
+    <a onclick="showSection('resume')">Resume</a>
+  </div>
+</nav>
 
-  <section id="about" class="active show" style="display: block;">
-    <h2>About Me</h2>
-    <img src="profile.jpg" alt="Rakshita Sankhe" class="profile-pic" />
-    <p>Tech-savvy professional with a strong analytical mindset and willingness to embrace new technology. Adept at using software tools, learning new systems, and applying critical thinking to solve complex challenges.</p>
-  </section>
+<section id="about" class="active show" style="display: block;">
+  <h2>About Me</h2>
+  <img src="profile.jpg" alt="Rakshita Sankhe" class="profile-pic" />
+  <p>Tech-savvy professional with a strong analytical mindset and willingness to embrace new technology. Adept at using software tools, learning new systems, and applying critical thinking to solve complex challenges.</p>
+</section>
 
-  <section id="skills">
-    <h2>Skills and Certifications</h2>
-    <h3>Technical Skills</h3>
-    <ul>
-      <li>Languages & Tools: Python, SQL, Excel, C/C++, Git</li>
-      <li>Libraries: Pandas, NumPy, Matplotlib, OpenCV</li>
-      <li>Databases & Platforms: MySQL, Power BI, Tableau</li>
-      <li>Systems & Concepts: Windows, Linux, Data Visualization, Data Cleaning, Reporting</li>
-    </ul>
-    <h3>Certifications</h3>
-    <ul>
-      <li><strong>Artificial Intelligence</strong> – <a href="https://ude.my/UC-9ab99049-cd20-4539-ba2f-89f35587cb9b" target="_blank">Udemy Certificate</a></li>
-    </ul>
-  </section>
+<section id="skills">
+  <h2>Skills and Certifications</h2>
+  <ul>
+    <li>Python, SQL, Excel, C/C++, Git</li>
+    <li>Pandas, NumPy, Matplotlib, OpenCV</li>
+    <li>MySQL, Power BI, Tableau</li>
+    <li>Windows, Linux, Data Visualization, Reporting</li>
+    <li><strong>Certification:</strong> <a href="https://ude.my/UC-9ab99049-cd20-4539-ba2f-89f35587cb9b" target="_blank">Artificial Intelligence - Udemy</a></li>
+  </ul>
+</section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <p><strong>Room Attendant – Powderhorn Château, NZ (2023–2025)</strong></p>
-    <ul>
-      <li>Maintained cleanliness, trained new staff, and supported guests.</li>
-    </ul>
-    <p><strong>Data Analyst Intern – Drishti Works, India (2019–2020)</strong></p>
-    <ul>
-      <li>Performed data cleaning, image processing, and client interaction.</li>
-    </ul>
-  </section>
+<section id="experience">
+  <h2>Experience</h2>
+  <p><strong>Room Attendant – Powderhorn Château, NZ (2023–2025)</strong></p>
+  <ul>
+    <li>Maintained cleanliness, trained new staff, and supported guests.</li>
+  </ul>
+  <p><strong>Data Analyst Intern – Drishti Works, India (2019–2020)</strong></p>
+  <ul>
+    <li>Performed data cleaning, image processing, and client interaction.</li>
+  </ul>
+</section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>LTE Network NB-IoT:</strong> Simulated and analyzed LTE network with NB-IoT using NS-3.</li>
-      <li><strong>NZ Banking Customer Churn:</strong> Power BI dashboard, logistic regression model.  
-        <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank" onclick="gtag('event', 'github_click');">View on GitHub</a>
-      </li>
-    </ul>
-  </section>
+<section id="projects">
+  <h2>Projects</h2>
+  <ul>
+    <li><strong>LTE Network NB-IoT:</strong> Simulated LTE network with NB-IoT using NS-3.</li>
+    <li><strong>NZ Banking Customer Churn:</strong> Power BI dashboard + logistic regression.
+      <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank" onclick="gtag('event', 'github_click');">View on GitHub</a>
+    </li>
+  </ul>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
-    
-    <p>LinkedIn: <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank" onclick="gtag('event', 'linkedin_click');">linkedin.com/in/rakshita-sankhe</a></p>
-    <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank" onclick="gtag('event', 'github_click');">github.com/rakshitasankhe</a></p>
-  </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
+  <p>Location: Auckland, New Zealand</p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank" onclick="gtag('event', 'linkedin_click');">linkedin.com/in/rakshita-sankhe</a></p>
+  <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank" onclick="gtag('event', 'github_click');">github.com/rakshitasankhe</a></p>
+</section>
 
-  <section id="resume">
+<section id="resume">
   <h2>Resume</h2>
   <p>You can preview or download my resume below:</p>
-
-  <!-- See Resume (Popup) -->
   <button class="resume-button" onclick="openResumeModal()">See My Resume</button>
-
-  <!-- Download Resume -->
   <a href="resume.pdf" download onclick="gtag('event', 'resume_download');">
     <button class="resume-button">Download Resume</button>
   </a>
-
-  <!-- Print Button -->
-  <button class="resume-button" onclick="window.print()">Print This Page</button>
-
-  <!-- Resume Popup Modal -->
   <div id="resumeModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeResumeModal()">&times;</span>
@@ -281,97 +252,50 @@
   </div>
 </section>
 
+<footer>
+  <p>&copy; 2025 Rakshita Sankhe</p>
+  <p>📧 <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
+  <p>📍 Auckland, New Zealand</p>
+</footer>
 
-<style>
-  .modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 1rem;
-  border: 1px solid #888;
-  width: 90%;
-  max-width: 800px;
-  border-radius: 8px;
-  position: relative;
-  animation: fadeIn 0.3s ease;
-}
-
-.close {
-  color: #aaa;
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #000;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-</style>
-
-
-
-
-
-
-
-
-
-  <footer>
-    <p>&copy; 2025 Rakshita Sankhe</p>
-    <p>📧 <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
-    <p>📍 Auckland, New Zealand</p>
-    <p>
-      <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank" onclick="gtag('event', 'linkedin_click');">LinkedIn</a> |
-      <a href="https://github.com/rakshitasankhe" target="_blank" onclick="gtag('event', 'github_click');">GitHub</a>
-    </p>
-  </footer>
-
-  <script>
+<!-- JS for Modal -->
+<script>
   function openResumeModal() {
     document.getElementById("resumeModal").style.display = "block";
     gtag('event', 'resume_preview');
   }
-
   function closeResumeModal() {
     document.getElementById("resumeModal").style.display = "none";
   }
-
   window.onclick = function(event) {
     const modal = document.getElementById("resumeModal");
-    if (event.target === modal) {
-      modal.style.display = "none";
+    if (event.target === modal) modal.style.display = "none";
+  }
+
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+      section.style.display = "none";
+      section.classList.remove("active", "show");
+    });
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.style.display = "block";
+      setTimeout(() => {
+        target.classList.add("active", "show");
+      }, 50);
     }
   }
 </script>
 
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X4N6QTWPRF"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-X4N6QTWPRF');
-  </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X4N6QTWPRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X4N6QTWPRF');
+</script>
 
 </body>
 </html>
