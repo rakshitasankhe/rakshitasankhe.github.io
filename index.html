@@ -17,7 +17,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 1.5rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -28,7 +28,7 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
+      font-size: 1.8rem;
       position: relative;
       transition: color 0.3s ease;
     }
@@ -55,11 +55,12 @@
     .nav-right a {
       color: white;
       text-decoration: none;
-      margin-left: 1.2rem;
+      margin-left: 1.5rem;
       font-weight: 500;
       cursor: pointer;
       position: relative;
       transition: all 0.3s ease;
+      font-size: 1.05rem;
     }
 
     .nav-right a::after {
@@ -109,26 +110,6 @@
       padding-left: 1rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #999;
-    }
-
-    footer p {
-      margin: 0.3rem 0;
-    }
-
-    footer a {
-      color: #007acc;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
     .resume-button {
       background: #007acc;
       color: white;
@@ -168,21 +149,43 @@
       }
     }
 
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    footer p {
+      margin: 0.3rem 0;
+    }
+
+    footer a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
         align-items: flex-start;
-        padding: 1rem;
       }
-
       .nav-right {
-        display: flex;
         flex-wrap: wrap;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
       }
-
       .nav-right a {
         margin: 0.5rem 0.8rem 0 0;
+      }
+    }
+
+    @media print {
+      nav, footer, .resume-button {
+        display: none !important;
       }
     }
   </style>
@@ -211,7 +214,6 @@
 
   <section id="skills">
     <h2>Skills and Certifications</h2>
-
     <h3>Technical Skills</h3>
     <ul>
       <li>Languages & Tools: Python, SQL, Excel, C/C++, Git</li>
@@ -219,12 +221,9 @@
       <li>Databases & Platforms: MySQL, Power BI, Tableau</li>
       <li>Systems & Concepts: Windows, Linux, Data Visualization, Data Cleaning, Reporting</li>
     </ul>
-
     <h3>Certifications</h3>
     <ul>
-      <li>
-        <strong>Artificial Intelligence</strong> – <a href="https://ude.my/UC-9ab99049-cd20-4539-ba2f-89f35587cb9b" target="_blank">Udemy Certificate</a>
-      </li>
+      <li><strong>Artificial Intelligence</strong> – <a href="https://ude.my/UC-9ab99049-cd20-4539-ba2f-89f35587cb9b" target="_blank">Udemy Certificate</a></li>
     </ul>
   </section>
 
@@ -243,12 +242,9 @@
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li>
-        <strong>LTE Network NB-IoT:</strong> Simulated and analyzed LTE network with NB-IoT using NS-3.
-      </li>
-      <li>
-        <strong>NZ Banking Customer Churn:</strong> Power BI dashboard, logistic regression model.  
-        <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank">View on GitHub</a>
+      <li><strong>LTE Network NB-IoT:</strong> Simulated and analyzed LTE network with NB-IoT using NS-3.</li>
+      <li><strong>NZ Banking Customer Churn:</strong> Power BI dashboard, logistic regression model.  
+        <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank" onclick="gtag('event', 'github_click');">View on GitHub</a>
       </li>
     </ul>
   </section>
@@ -256,26 +252,33 @@
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
-    
-    <p>LinkedIn: <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank">linkedin.com/in/rakshita-sankhe</a></p>
-    <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank">github.com/rakshitasankhe</a></p>
+    <p>Location: Auckland, New Zealand</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank" onclick="gtag('event', 'linkedin_click');">linkedin.com/in/rakshita-sankhe</a></p>
+    <p>GitHub: <a href="https://github.com/rakshitasankhe" target="_blank" onclick="gtag('event', 'github_click');">github.com/rakshitasankhe</a></p>
   </section>
 
   <section id="resume">
     <h2>Resume</h2>
-    <p>You can download my resume by clicking the button below:</p>
-    <a href="resume.pdf" download>
+    <p>You can download my resume or print this page:</p>
+    <a href="resume.pdf" download onclick="gtag('event', 'resume_download');">
       <button class="resume-button">Download Resume</button>
     </a>
+    <button class="resume-button" onclick="window.print()">Print This Page</button>
   </section>
+
+
+
+
+
+
 
   <footer>
     <p>&copy; 2025 Rakshita Sankhe</p>
     <p>📧 <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></p>
-    
+    <p>📍 Auckland, New Zealand</p>
     <p>
-      <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/rakshitasankhe" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank" onclick="gtag('event', 'linkedin_click');">LinkedIn</a> |
+      <a href="https://github.com/rakshitasankhe" target="_blank" onclick="gtag('event', 'github_click');">GitHub</a>
     </p>
   </footer>
 
