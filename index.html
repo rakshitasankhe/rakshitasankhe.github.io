@@ -22,41 +22,29 @@
       z-index: 1000;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+
     .nav-left .nav-name {
       color: white;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.8rem;
-      position: relative;
-      transition: color 0.3s ease;
+      cursor: pointer;
     }
-    .nav-left .nav-name::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background: white;
-      left: 0;
-      bottom: -5px;
-      transition: width 0.3s ease;
-    }
-    .nav-left .nav-name:hover::after {
-      width: 100%;
-    }
-    .nav-left .nav-name:hover {
-      color: #ffeb3b;
-    }
-    .nav-right a {
+
+    .nav-right button {
+      background: none;
+      border: none;
       color: white;
-      text-decoration: none;
       margin-left: 1.5rem;
+      font-size: 1.05rem;
       font-weight: 500;
       cursor: pointer;
       position: relative;
       transition: all 0.3s ease;
-      font-size: 1.05rem;
+      font-family: inherit;
     }
-    .nav-right a::after {
+
+    .nav-right button::after {
       content: "";
       position: absolute;
       width: 0%;
@@ -66,12 +54,15 @@
       bottom: -5px;
       transition: width 0.3s ease;
     }
-    .nav-right a:hover::after {
+
+    .nav-right button:hover::after {
       width: 100%;
     }
-    .nav-right a:hover {
+
+    .nav-right button:hover {
       color: #ffeb3b;
     }
+
     section {
       display: none;
       max-width: 800px;
@@ -82,15 +73,20 @@
       transform: translateY(40px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
+
     section.active {
       display: block;
     }
+
     section.show {
       opacity: 1;
       transform: translateY(0);
     }
-    h2 { color: #007acc; }
-    ul { padding-left: 1rem; }
+
+    h2 {
+      color: #007acc;
+    }
+
     .resume-button {
       background: #007acc;
       color: white;
@@ -102,38 +98,13 @@
       margin-top: 1rem;
       transition: all 0.3s ease;
     }
+
     .resume-button:hover {
       background: #005fa3;
       transform: scale(1.05);
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
-    .profile-pic {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      animation: pop-in 1s ease forwards;
-    }
-    @keyframes pop-in {
-      0% { transform: scale(0.6); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #999;
-    }
-    footer p { margin: 0.3rem 0; }
-    footer a {
-      color: #007acc;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
+
     .modal {
       display: none;
       position: fixed;
@@ -145,17 +116,26 @@
       overflow: auto;
       background: rgba(0, 0, 0, 0.6);
     }
+
     .modal-content {
-      background-color: #fefefe;
-      margin: 5% auto;
+      background-color: #fff;
+      margin: 2% auto;
       padding: 1rem;
       border: 1px solid #888;
       width: 90%;
-      max-width: 800px;
+      max-width: 900px;
       border-radius: 8px;
       position: relative;
+      height: 90vh;
       animation: fadeIn 0.3s ease;
     }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     .close {
       color: #aaa;
       position: absolute;
@@ -165,12 +145,21 @@
       font-weight: bold;
       cursor: pointer;
     }
+
     .close:hover {
       color: #000;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #999;
     }
   </style>
 </head>
@@ -178,21 +167,20 @@
 
 <nav>
   <div class="nav-left">
-    <a onclick="showSection('about')" class="nav-name">Rakshita Sankhe</a>
+    <span class="nav-name" onclick="showSection('about')">Rakshita Sankhe</span>
   </div>
   <div class="nav-right">
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('skills')">Skills</a>
-    <a onclick="showSection('experience')">Experience</a>
-    <a onclick="showSection('projects')">Projects</a>
-    <a onclick="showSection('contact')">Contact</a>
-    <a onclick="showSection('resume')">Resume</a>
+    <button onclick="showSection('about')">About</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('experience')">Experience</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('contact')">Contact</button>
+    <button onclick="showSection('resume')">Resume</button>
   </div>
 </nav>
 
 <section id="about" class="active show" style="display: block;">
   <h2>About Me</h2>
-  <img src="profile.jpg" alt="Rakshita Sankhe" class="profile-pic" />
   <p>Tech-savvy professional with a strong analytical mindset and willingness to embrace new technology. Adept at using software tools, learning new systems, and applying critical thinking to solve complex challenges.</p>
 </section>
 
@@ -247,7 +235,7 @@
   <div id="resumeModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeResumeModal()">&times;</span>
-      <iframe src="resume.pdf" width="100%" height="600px" style="border: none;"></iframe>
+      <iframe src="resume.pdf"></iframe>
     </div>
   </div>
 </section>
@@ -258,7 +246,6 @@
   <p>📍 Auckland, New Zealand</p>
 </footer>
 
-<!-- JS for Modal -->
 <script>
   function openResumeModal() {
     document.getElementById("resumeModal").style.display = "block";
