@@ -17,8 +17,13 @@ header {
   align-items: center;
   color: white;
 }
-header h1 {
-  margin: 0;
+header h1 a.logo {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+header h1 a.logo:hover {
+  color: #ffeb3b;
 }
 nav a, nav button {
   color: white;
@@ -108,3 +113,33 @@ footer {
 .close:hover {
   color: black;
 }
+
+.centered-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 160px); /* leaves space for header + footer */
+  text-align: center;
+  padding: 2rem;
+}
+
+.centered-page h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.centered-page p,
+.centered-page ul {
+  max-width: 700px;
+  margin: 0.5rem auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .centered-page {
+    padding: 1.5rem 1rem;
+  }
+}
+
