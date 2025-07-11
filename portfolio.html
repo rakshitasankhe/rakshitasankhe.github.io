@@ -9,29 +9,35 @@
 <body>
   <header>
     <h1>Rakshita Sankhe</h1>
-      <nav>
-         <a href="index.html">Home</a>
-         <a href="portfolio.html">Portfolio</a>
-         <a href="education.html">Education</a>
-         <a href="resources.html">Resources</a>
-         <a href="contact.html">Contact</a>
-        <button id="darkModeToggle">🌙</button>
-      </nav>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="education.html">Education</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
   </header>
-  <main>
-    <h2>My Projects</h2><p>Coming soon!</p>
+  <main class="fade-in">
+    <h2>Portfolio</h2>
+    <ul>
+      <li><strong>NZ Banking Customer Insights:</strong> Churn model using Power BI + Python.
+        <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank">View on GitHub</a>
+      </li>
+      <li><strong>LTE Network NB-IoT:</strong> Network simulation using NS-3</li>
+    </ul>
   </main>
   <footer>
     <p>&copy; 2025 Rakshita Sankhe</p>
   </footer>
   <script>
-     const toggle = document.getElementById('darkModeToggle');
-     const isDark = localStorage.getItem('dark-mode') === 'true';
-     if (isDark) document.body.classList.add('dark');
-     toggle.onclick = () => {
-       document.body.classList.toggle('dark');
-       localStorage.setItem('dark-mode', document.body.classList.contains('dark'));
-     };
+    const toggle = document.getElementById('darkModeToggle');
+    const isDark = localStorage.getItem('dark-mode') === 'true';
+    if (isDark) document.body.classList.add('dark');
+    toggle.onclick = () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('dark-mode', document.body.classList.contains('dark'));
+    };
   </script>
 </body>
 </html>
