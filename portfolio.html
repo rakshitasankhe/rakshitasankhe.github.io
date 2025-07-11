@@ -13,23 +13,30 @@
       <a href="index.html">Home</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="education.html">Education</a>
-      <a href="resources.html">Resources</a>
+      <a href="resume.html">Resume</a>
       <a href="contact.html">Contact</a>
       <button id="darkModeToggle">🌙</button>
     </nav>
   </header>
+
   <main class="fade-in">
-    <h2>Portfolio</h2>
-    <ul>
-      <li><strong>NZ Banking Customer Insights:</strong> Churn model using Power BI + Python.
-        <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank">View on GitHub</a>
+    <h2>Projects</h2>
+    <ul style="text-align: left; max-width: 700px; margin: auto;">
+      <li>
+        <strong>NZ Banking Customer Insights:</strong>
+        Built a churn prediction model using logistic regression and created a Power BI dashboard.<br/>
+        <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank">🔗 View on GitHub</a>
       </li>
-      <li><strong>LTE Network NB-IoT:</strong> Network simulation using NS-3</li>
+      <br />
+      <li>
+        <strong>LTE Network with NB-IoT:</strong>
+        Simulated LTE network performance using NS-3 to evaluate IoT behavior under FFR algorithms.
+      </li>
     </ul>
   </main>
-  <footer>
-    <p>&copy; 2025 Rakshita Sankhe</p>
-  </footer>
+
+  <footer><p>&copy; 2025 Rakshita Sankhe</p></footer>
+
   <script>
     const toggle = document.getElementById('darkModeToggle');
     const isDark = localStorage.getItem('dark-mode') === 'true';

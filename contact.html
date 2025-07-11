@@ -9,29 +9,37 @@
 <body>
   <header>
     <h1>Rakshita Sankhe</h1>
-      <nav>
-         <a href="index.html">Home</a>
-         <a href="portfolio.html">Portfolio</a>
-         <a href="education.html">Education</a>
-         <a href="resources.html">Resources</a>
-         <a href="contact.html">Contact</a>
-        <button id="darkModeToggle">🌙</button>
-      </nav>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="education.html">Education</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
   </header>
-  <main>
-    <h2>Contact Me</h2><p>Email: <a href='mailto:rakshita.sankhe@gmail.com'>rakshita.sankhe@gmail.com</a></p>
+
+  <main class="fade-in">
+    <h2>Contact Me</h2>
+    <p>You can reach me anytime via the links below:</p>
+    <ul style="list-style: none; padding: 0; font-size: 1.1rem;">
+      <li>📧 <a href="mailto:rakshita.sankhe@gmail.com">rakshita.sankhe@gmail.com</a></li>
+      <li>🌍 Auckland, New Zealand</li>
+      <li>🔗 <a href="https://linkedin.com/in/rakshita-sankhe" target="_blank">LinkedIn</a></li>
+      <li>🔗 <a href="https://github.com/rakshitasankhe" target="_blank">GitHub</a></li>
+    </ul>
   </main>
-  <footer>
-    <p>&copy; 2025 Rakshita Sankhe</p>
-  </footer>
+
+  <footer><p>&copy; 2025 Rakshita Sankhe</p></footer>
+
   <script>
-     const toggle = document.getElementById('darkModeToggle');
-     const isDark = localStorage.getItem('dark-mode') === 'true';
-     if (isDark) document.body.classList.add('dark');
-     toggle.onclick = () => {
-       document.body.classList.toggle('dark');
-       localStorage.setItem('dark-mode', document.body.classList.contains('dark'));
-     };
+    const toggle = document.getElementById('darkModeToggle');
+    const isDark = localStorage.getItem('dark-mode') === 'true';
+    if (isDark) document.body.classList.add('dark');
+    toggle.onclick = () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('dark-mode', document.body.classList.contains('dark'));
+    };
   </script>
 </body>
 </html>
