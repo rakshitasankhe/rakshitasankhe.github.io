@@ -1,1 +1,0 @@
-Place profile.jpg and resume.pdf in the same folder before uploading to GitHub.

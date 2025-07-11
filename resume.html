@@ -1,1 +1,47 @@
-<!DOCTYPE html><html><head><title>Resume</title><link rel='stylesheet' href='style.css'></head><body><h1>Resume</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume | Rakshita Sankhe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html" class="logo">Rakshita Sankhe</a></h1>
+    <nav>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
+  </header>
+
+  <main class="centered-page">
+    <h2>Resume</h2>
+    <p>Download or preview my resume below.</p>
+    <a href="resume.pdf" download><button class="button">⬇️ Download Resume</button></a>
+    <button class="button" onclick="document.getElementById('resumeModal').style.display='block'">👁️ View Resume</button>
+
+    <div id="resumeModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="document.getElementById('resumeModal').style.display='none'">&times;</span>
+        <iframe src="resume.pdf"></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer><p>&copy; 2025 Rakshita Sankhe</p></footer>
+
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    const isDark = localStorage.getItem('dark-mode') === 'true';
+    if (isDark) document.body.classList.add('dark');
+    toggle.onclick = () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('dark-mode', document.body.classList.contains('dark'));
+    };
+  </script>
+</body>
+</html>
