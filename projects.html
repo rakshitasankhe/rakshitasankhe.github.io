@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects | Rakshita Sankhe</title>
+  <title>Projects</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1><a href="index.html" class="logo">Rakshita Sankhe</a></h1>
+    <h1><a href="index.html">Rakshita Sankhe</a></h1>
     <nav>
       <a href="projects.html">Projects</a>
       <a href="education.html">Education</a>
@@ -17,22 +17,21 @@
       <button id="darkModeToggle">🌙</button>
     </nav>
   </header>
-
   <main class="centered-page">
-    <h2>My Projects</h2>
-    <div class="project-card">
-      <h3>NZ Banking Customer Insights</h3>
-      <p>Built a churn prediction model using logistic regression and created a Power BI dashboard.</p>
-      <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank">🔗 View on GitHub</a>
-    </div>
-    <div class="project-card">
-      <h3>LTE Network with NB-IoT</h3>
-      <p>Simulated LTE network performance in NS-3 using FFR algorithms for IoT communication.</p>
-    </div>
+    
+  <h2>My Projects</h2>
+  <div class="project-card">
+    <h3>NZ Banking Customer Insights</h3>
+    <p>Churn prediction using logistic regression, Power BI dashboard for stakeholder reporting.</p>
+    <a href="https://github.com/rakshitasankhe/nz-banking-customer-insights" target="_blank">🔗 View on GitHub</a>
+  </div>
+  <div class="project-card">
+    <h3>LTE Network with NB-IoT</h3>
+    <p>Simulated LTE network performance using NS-3 to test IoT-focused algorithms.</p>
+  </div>
+
   </main>
-
   <footer><p>&copy; 2025 Rakshita Sankhe</p></footer>
-
   <script>
     const toggle = document.getElementById('darkModeToggle');
     const isDark = localStorage.getItem('dark-mode') === 'true';

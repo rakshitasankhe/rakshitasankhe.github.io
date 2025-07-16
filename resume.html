@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Resume | Rakshita Sankhe</title>
+  <title>Resume</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1><a href="index.html" class="logo">Rakshita Sankhe</a></h1>
+    <h1><a href="index.html">Rakshita Sankhe</a></h1>
     <nav>
       <a href="projects.html">Projects</a>
       <a href="education.html">Education</a>
@@ -17,23 +17,21 @@
       <button id="darkModeToggle">🌙</button>
     </nav>
   </header>
-
   <main class="centered-page">
-    <h2>Resume</h2>
-    <p>You can preview or download my resume below.</p>
-    <a href="resume.pdf" download><button class="button">⬇️ Download Resume</button></a>
-    <button class="button" onclick="document.getElementById('resumeModal').style.display='block'">👁️ View Resume</button>
-
-    <div id="resumeModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="document.getElementById('resumeModal').style.display='none'">&times;</span>
-        <iframe src="resume.pdf"></iframe>
-      </div>
+    
+  <h2>Resume</h2>
+  <p>Download or preview my resume:</p>
+  <a href="resume.pdf" download><button class="button">⬇️ Download Resume</button></a>
+  <button class="button" onclick="document.getElementById('resumeModal').style.display='block'">👁️ View Resume</button>
+  <div id="resumeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('resumeModal').style.display='none'">&times;</span>
+      <iframe src="resume.pdf"></iframe>
     </div>
+  </div>
+
   </main>
-
   <footer><p>&copy; 2025 Rakshita Sankhe</p></footer>
-
   <script>
     const toggle = document.getElementById('darkModeToggle');
     const isDark = localStorage.getItem('dark-mode') === 'true';
